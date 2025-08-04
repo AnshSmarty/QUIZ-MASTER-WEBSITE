@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quiz Master - Test Your Knowledge</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="header-content">
+      <div class="logo">
+        <span class="logo-icon">🎓</span>
+        <span class="logo-text">Quiz Master</span>
+      </div>
+      <div class="level-selector">
+        <h3>Difficulty Level</h3>
+        <div class="levels">
+          <button class="level-btn active" data-level="1" onclick="selectLevel(1)">
+            <span class="level-icon">🟢</span>
+            <span>Level 1</span>
+            <small>Easy</small>
+          </button>
+          <button class="level-btn" data-level="2" onclick="selectLevel(2)">
+            <span class="level-icon">🟡</span>
+            <span>Level 2</span>
+            <small>Medium</small>
+          </button>
+          <button class="level-btn" data-level="3" onclick="selectLevel(3)">
+            <span class="level-icon">🔴</span>
+            <span>Level 3</span>
+            <small>Hard</small>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <div class="main-container">
+    <!-- Sidebar Navigation -->
+    <nav class="sidebar">
+      <h3>Select Quiz</h3>
+      <ul class="quiz-menu">
+        <li class="quiz-option active" data-quiz="webdev" onclick="selectQuiz('webdev')">
+          <span class="quiz-icon">💻</span>
+          <span>WEB DEV QUIZ</span>
+        </li>
+        <li class="quiz-option" data-quiz="history" onclick="selectQuiz('history')">
+          <span class="quiz-icon">🏛️</span>
+          <span>HISTORY QUIZ</span>
+        </li>
+        <li class="quiz-option" data-quiz="general" onclick="selectQuiz('general')">
+          <span class="quiz-icon">🧠</span>
+          <span>GENERAL KNOWLEDGE QUIZ</span>
+        </li>
+        <li class="quiz-option" data-quiz="maths" onclick="selectQuiz('maths')">
+          <span class="quiz-icon">🔢</span>
+          <span>MATHS QUIZ</span>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Quiz Content -->
+    <div class="content-area">
+      <div class="start-screen" id="startScreen">
+        <h1 id="quizTitle">🎓 Ready to Test Your Web Development Knowledge?</h1>
+        <p id="quizDescription">Take this quick quiz and see how smart you really are!</p>
+        <div class="current-level-display">
+          <span id="currentLevelDisplay">🟢 Level 1 - Easy</span>
+        </div>
+        <button onclick="startQuiz()">Start Quiz</button>
+      </div>
+
+      <div class="quiz-container hidden" id="quiz">
+        <div class="timer-container">
+          <span id="timer">15s</span>
+        </div>
+        <div class="question-counter" id="questionCounter">1 of 10</div>
+        <div class="question" id="question"></div>
+        <div id="options"></div>
+        <div class="info-bar">
+          <div class="progress-container">
+            <div class="progress-bar" id="progressBar"></div>
+          </div>
+          <button onclick="nextQuestion()" id="nextBtn" class="hidden">Next</button>
+        </div>
+        <div id="result" class="hidden">
+          <div class="result-content" id="resultContent"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <p>&copy; 2025 Quiz Master. All rights reserved.</p>
+      <p>Created by <strong>PRIYANSHU KUMAR</strong></p>
+    </div>
+  </footer>
+
+  <audio id="correctSound" preload="auto" crossorigin="anonymous">
+    <source src="correct.mp3" type="audio/mpeg">
+  </audio>
+  <audio id="wrongSound" preload="auto" crossorigin="anonymous">
+    <source src="wrong.mp3" type="audio/mpeg">
+  </audio>
+  <audio id="tickSound" preload="auto" crossorigin="anonymous">
+    <source src="ticking.mp3" type="audio/mpeg">
+  </audio>
+  <audio id="revealSound" preload="auto" crossorigin="anonymous">
+    <source src="reveal.mp3" type="audio/mpeg">
+  </audio>
+
+  <script src="script.js"></script>
+</body>
+</html>
